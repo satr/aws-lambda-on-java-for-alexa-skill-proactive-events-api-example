@@ -24,9 +24,7 @@ import static org.slf4j.LoggerFactory.getLogger;
         "uri": "arn:aws:lambda:YOUR-FUNCTION"
       },
       "subscriptions": [
-        {
-          "eventName": "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED"
-        }
+        { "eventName": "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED" }
       ]
     }
 */
@@ -41,15 +39,10 @@ public class CustomProactiveSubscriptionChangedRequestHandler implements Proacti
     @Override
     public Optional<Response> handle(HandlerInput input, ProactiveSubscriptionChangedRequest proactiveSubscriptionChangedRequest) {
         logger.info("User has changed subscription to proactive event(s).");
-        logger.info("UserId: " + getUserId(input));
         logSubscriptionList(proactiveSubscriptionChangedRequest);
-        logger.info("Request: " + input.getRequestEnvelopeJson());
+        String userId = input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
+        //Put handling code here
         return Optional.empty();
-    }
-
-    private String getUserId(HandlerInput input) {
-        //there is no session - take a user-id from the context-system
-        return input.getRequestEnvelope().getContext().getSystem().getUser().getUserId();
     }
 
     private void logSubscriptionList(ProactiveSubscriptionChangedRequest proactiveSubscriptionChangedRequest) {

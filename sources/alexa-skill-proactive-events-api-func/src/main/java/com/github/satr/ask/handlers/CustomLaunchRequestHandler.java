@@ -11,6 +11,7 @@ import java.util.Optional;
 import static com.amazon.ask.request.Predicates.requestType;
 import static org.slf4j.LoggerFactory.getLogger;
 
+//The handler is used when a user made a request to an Alexa skill, but did not provide a specific intent.
 public class CustomLaunchRequestHandler implements LaunchRequestHandler {
     private static Logger logger = getLogger(CustomLaunchRequestHandler.class);
 

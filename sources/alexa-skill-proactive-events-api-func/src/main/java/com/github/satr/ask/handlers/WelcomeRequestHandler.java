@@ -8,6 +8,8 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
+// An example of a handler, which processes an intent-specific request.
+// This one is for a custom made "WelcomeIntent", created in the Alexa skill as an example
 public class WelcomeRequestHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput handlerInput) {
