@@ -1,0 +1,35 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:YOUR-FUNCTION"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Simple Alexa Skill"
+        }
+      }
+    },
+    "permissions": [{"name": "alexa::devices:all:notifications:write"}],
+    "events": {
+      "publications": [
+        { "eventName": "AMAZON.OrderStatus.Updated" },
+        { "eventName": "AMAZON.MediaContent.Available" }
+      ],
+      "endpoint": {
+        "uri": "arn:aws:lambda:YOUR-FUNCTION"
+      },
+      "subscriptions": [
+        {
+          "eventName": "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED"
+        }
+      ]  
+    }
+  }
+}
