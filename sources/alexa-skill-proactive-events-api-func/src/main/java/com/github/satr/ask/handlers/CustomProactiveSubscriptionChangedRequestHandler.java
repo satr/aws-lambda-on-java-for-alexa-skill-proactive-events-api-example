@@ -13,6 +13,23 @@ import java.util.stream.Collectors;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/* Skill manifest should contain subscription to the event "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED" (with needed proactive events in "publications")
+     "permissions": [{"name": "alexa::devices:all:notifications:write"}],
+    "events": {
+      "publications": [
+        { "eventName": "AMAZON.OrderStatus.Updated" },
+        { "eventName": "AMAZON.MediaContent.Available" }
+      ],
+      "endpoint": {
+        "uri": "arn:aws:lambda:YOUR-FUNCTION"
+      },
+      "subscriptions": [
+        {
+          "eventName": "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED"
+        }
+      ]
+    }
+*/
 public class CustomProactiveSubscriptionChangedRequestHandler implements ProactiveSubscriptionChangedRequestHandler {
     private static Logger logger = getLogger(CustomProactiveSubscriptionChangedRequestHandler.class);
 
